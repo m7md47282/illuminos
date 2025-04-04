@@ -1,0 +1,7 @@
+{
+  "name": "iluminos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
