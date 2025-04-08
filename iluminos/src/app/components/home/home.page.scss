@@ -1,0 +1,297 @@
+h1 {
+  font-size: 38px;
+}
+
+.hero-section {
+  position: relative;
+  height: 100vh;
+}
+
+.mountains {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../../assets/images/hero-image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  z-index: 3;
+  // mix-blend-mode: darken;
+
+
+}
+
+.sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/images/hero-sky.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  animation: zoom-out 120s linear infinite;
+}
+
+.hero-logo {
+  position: absolute;
+  top: 0;
+  left: 47%;
+  width: 62vw;
+  background-image: url('/assets/images/hero-logo.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  z-index: 2;
+  mix-blend-mode: overlay;
+  animation: rotate 260s linear infinite;
+
+}
+
+.letUsGuid {
+  position: relative;
+  z-index: 1;
+  margin: 0 12px;
+
+  img {
+    width: 309px;
+    height: 120px;
+  }
+}
+
+.experience {
+  position: relative;
+  z-index: 1;
+  /* Group 1000002634 */
+  width: 484px;
+  height: 122px;
+  z-index: 99;
+  border-radius: 8px;
+
+  img {
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 0 29px #b38548;
+    }
+  }
+
+}
+
+// .events-container{
+//   width: 100%;
+// }
+.event-card{
+  width: 100vw;
+}
+
+ng-deep .owl-carousel .owl-stage{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.event-card-item{
+  width: 120px;
+  height: 120px;
+  background-color: red;
+}
+
+.events-section {
+  z-index: 999;
+  position: relative;
+  background: black;
+  display: flex;
+  justify-content: center;
+  padding: 25px 0;
+  justify-content: center;
+
+  .events-section-title {
+    text-align: center;
+    a {
+      margin: 0 3px;
+    }
+  }
+
+}
+.owl-carousel .owl-item {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.title {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 120px;
+
+  display: flex;
+  flex-direction: column;
+  padding-top: 15%;
+  align-items: flex-start;
+}
+
+
+.social-links {
+  z-index: 2;
+  display: flex;
+  gap: 10px;
+  margin: 14px;
+}
+
+
+
+#smooth-wrapper {
+  height: 100%;
+  overflow: hidden;
+}
+
+#smooth-content {
+  will-change: transform;
+}
+
+.parallax-container {
+  position: relative;
+  height: 200vh;
+
+  .layer {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+  }
+
+
+}
+.event-card{
+  margin: 50px 0;
+}
+.events-description{
+  font-size: 18px;
+}
+
+.vision-section{
+  height: 133vh;
+  display: flex;
+  align-items: center;
+  z-index: 999;
+}
+
+.vision-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    h2{
+      text-align: center;
+      margin-bottom: 43px;
+    }
+}
+
+
+.upper-part{ 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 600px;
+  width: 100%;
+  position: absolute;
+  top: -5px;
+  left: 0;
+  
+}
+// .lower-part-container{
+//  height: 75vh;
+// }
+
+.lower-part{ 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 600px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  rotate: (180deg);
+}
+
+.shade{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  
+  z-index: 999;
+}
+.text-center{
+  text-align: center;
+}
+.bottom{
+  bottom: 0;
+  background: linear-gradient(0deg, black, transparent);
+}
+
+.top{
+  top: 0;
+  background: linear-gradient(180deg, black, transparent);
+}
+
+
+.top-20{
+  top: -20px;
+}
+
+.vision-content {
+  font-size: 18px;
+  .left-side span{
+    color: var(--ion-color-primary);
+    font-weight: 600;
+    font-size: 20px;
+  }
+  .right-side span{
+    color: var(--ion-color-secondary);
+    font-weight: 600;
+    font-size: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes zoom-out {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.5);
+  }
+}

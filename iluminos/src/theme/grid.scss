@@ -1,0 +1,30 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+  }
+
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        grid-column: span #{$i};
+    }
+
+    .col-start-#{$i} {
+        grid-column-start: #{$i};
+    }
+
+    .col-end-#{$i} {
+        grid-column-end: #{$i};
+    }
+
+    .col-end {
+        grid-column-end: 12;
+    }
+}
+
+@for $i from 1 through 20{
+    .z-#{$i} {
+        z-index: #{$i};
+    }
+}
+

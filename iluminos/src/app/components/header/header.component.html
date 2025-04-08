@@ -1,0 +1,48 @@
+<header>
+  @if(isMobile){
+      <ion-menu contentId="main-content">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Menu Content</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          
+          <div class="flex flex-col gap-2">
+            <span>
+              events
+            </span>
+            <span>
+              make your event
+            </span>
+            <span>
+              contact us
+            </span>
+          </div>
+        </ion-content>
+      </ion-menu>
+      <div class="ion-page" id="main-content">
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title>Menu</ion-title>
+          </ion-toolbar>
+        </ion-header>
+      </div>
+  }
+  @else{
+      <nav class="grid">
+        <div name="logo" class="logo col-start-2">
+          logo
+        </div>
+        <button class="clickable col-start-10 max-width btn btn-primary-light">
+          events
+        </button>
+        <span class="clickable col-start-11 max-width">make your event</span>
+        <span class="clickable col-start-12 max-width">Contact us</span>
+      </nav>
+  }
+</header>
+
