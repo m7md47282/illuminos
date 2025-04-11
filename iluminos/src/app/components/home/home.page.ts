@@ -1,9 +1,10 @@
-import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild, viewChild } from '@angular/core';
+import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild, HostListener } from '@angular/core';
 import { IonContent } from '@ionic/angular/standalone';
 import gsap from 'gsap';
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { CommonModule } from '@angular/common';
-
+import { FooterComponent } from '../footer/footer.component';
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -11,6 +12,8 @@ import { CommonModule } from '@angular/common';
   imports: [
     IonContent,
     CommonModule,
+    FooterComponent,
+    MatIconModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] 
 })
@@ -126,6 +129,9 @@ images = [1, 2, 3,4,5,6].map((n) => `/assets/images/slider-${n}.png`);
     gsap.registerPlugin(ScrollTrigger);
 
 
+ 
+
+
     const scrollEl = await this.ionContent.getScrollElement();
 
     
@@ -203,66 +209,89 @@ images = [1, 2, 3,4,5,6].map((n) => `/assets/images/slider-${n}.png`);
       },
     });
 
-    // gsap.from('.falling-man img', {
-    //   scrollTrigger: {
-    //     trigger: '.vision-section',
-    //     start: 'top top', // when top of element hits 80% of viewport height
-    //     toggleActions: 'play play play play', 
-    //     scroller: scrollEl,
-    //   },
-    //   y: -150,
-    //   opacity: 1,
-    //   duration: 50,
-    //   ease: 'power2.out',
-    //   // scroller: scrollEl,
+    const slides = document.querySelectorAll('.slide');
+    const partnerCards = document.querySelectorAll('.partner-card');
+    const totalSlides = slides.length;
+    const totalPartnerCards = partnerCards.length;
 
-    // });
 
-    gsap.to('.falling-man img', {
-      scrollTrigger: {
-        trigger: '.vision-section',
-        start: 'top center', 
-        toggleActions: 'play play play play', 
-        markers: true, 
-        scroller: scrollEl,
-      },
-      y: 150,
+
+    gsap.from(".team-card.right-side", {
+      xPercent: 1000 ,
+      ease: "none",
       opacity: 1,
-      duration: 50,
-      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: ".meet-us-container",
+        start: "bottom bottom",
+        end: "top 50%",
+        // scrub: 1.5,
+        scroller: scrollEl,
+      }
+    });
+    gsap.to(".team-card.right-side", {
+      xPercent: 0,
+      ease: "none",
+      opacity: 1,
+      scrollTrigger: {
+        trigger: ".meet-us-container",
+        start: "bottom bottom",
+        end: "top 50%",
+        scrub: 2,
+        scroller: scrollEl,
+      }
+    });
+    
+    gsap.from(".team-card.left-side", {
+      xPercent: -1000 ,
+      ease: "none",
+      opacity: 1,
+      scrollTrigger: {
+        trigger: ".meet-us-container",
+        start: "bottom bottom",
+        end: "top 50%",
+        // scrub: 1.5,
+        scroller: scrollEl,
+      }
+    });
+    gsap.to(".team-card.left-side", {
+      xPercent: 0,
+      ease: "none",
+      opacity: 1,
+      scrollTrigger: {
+        trigger: ".meet-us-container",
+        start: "bottom bottom",
+        end: "top 50%",
+        scrub: 2,
+        scroller: scrollEl,
+        markers: true
+      }
+    });
+    
+    
+    gsap.from(".our-partners-slider-wrapper", {
+      xPercent: 100 ,
+      ease: "none",
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".our-partners-container",
+        start: "bottom bottom",
+        end: "top 60%",
+        // scrub: 1.5,
+        scroller: scrollEl,
+      }
     });
 
-    gsap.from('.flying-birds img', {
-      scrollTrigger: {
-        trigger: '.vision-section',
-        start: 'top top',
-        toggleActions: 'play play play play', 
-        scroller: scrollEl,
-
-      },
-      y: 100,
-      x: 100,
+    gsap.to(".our-partners-slider-wrapper", {
+      xPercent: 0,
+      ease: "none",
       opacity: 1,
-      duration: 50,
-      ease: 'power2.out',
-      // scroller: scrollEl,
-
-
-    });
-
-    gsap.to('.flying-birds img', {
       scrollTrigger: {
-        trigger: '.vision-section',
-        start: 'top center',
-        toggleActions: 'play play play play', 
-        markers: true, 
+        trigger: ".our-partners-container",
+        start: "bottom bottom",
+        end: "top 60%",
+        scrub: 2,
         scroller: scrollEl,
-      },
-      y: -100,
-      x: -100,
-      opacity: 1,
-      duration: 50,
-      ease: 'power2.out',
+      }
     });
 
 

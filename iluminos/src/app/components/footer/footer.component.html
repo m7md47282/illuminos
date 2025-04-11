@@ -1,3 +1,52 @@
-<p>
-  footer works!
-</p>
+<footer class="footer relative">
+  <div class="shade top"></div>
+  <img class="campers" src="assets/images/campers.png" alt="">
+  <img class="sky" src="assets/images/sky-2.png" alt="">
+  <div class="footer-content">
+    <div class="grid">
+      <div class="footer-side col-start-2 col-end-7">
+        <div class="social-links">
+          <div class="link">
+            <mat-icon svgIcon="x"></mat-icon>
+            <span>x.com/illuminos</span>
+          </div>
+          <div class="link">  
+            <mat-icon svgIcon="tiktok"></mat-icon>
+            <span>tiktok.com/illuminos</span>
+          </div>
+          <div class="link">
+            <mat-icon svgIcon="instagram"></mat-icon>
+            <span>instagram.com/illuminos</span>
+          </div>
+          <div class="link">
+            <mat-icon svgIcon="snapchat"></mat-icon>
+            <span>snapchat.com/illuminos</span>
+          </div>
+          <div class="link">
+            <mat-icon svgIcon="whatsapp"></mat-icon>
+            <span>wa.me/illuminos</span>
+          </div>
+        </div>s
+      </div>
+
+      <div class="footer-side col-start-7 col-end-12">
+        <form #contactForm="ngForm" class="contact-form grid" (ngSubmit)="onSubmit(contactForm)">
+            <input class="col-6" type="text" id="name" name="name" placeholder="Name" [(ngModel)]="name" required>
+
+            <input class="col-6" type="email" id="email" name="email" placeholder="Email" [(ngModel)]="email" required>
+            
+            <textarea class="col-12" id="message" name="message" placeholder="Message" [(ngModel)]="message" required></textarea>
+
+            <select class="col-12" id="type" name="type" [(ngModel)]="type" required>
+              <option value="" selected>Type</option>
+              <option value="client" >Client</option>
+              <option value="partner">Partner</option>
+            </select>
+
+          <button class="col-3 btn btn-primary" type="submit">Send</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</footer>

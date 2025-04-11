@@ -8,7 +8,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 import { register } from 'swiper/element/bundle';
-
+import { provideHttpClient } from '@angular/common/http';
 register();
 
 bootstrapApplication(AppComponent, {
@@ -16,6 +16,7 @@ bootstrapApplication(AppComponent, {
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideIonicAngular(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
-    provideAnimations()
+    provideAnimations(),
+    provideHttpClient()
   ],
 });
