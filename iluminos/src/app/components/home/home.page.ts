@@ -263,7 +263,6 @@ images = [1, 2, 3,4,5,6].map((n) => `/assets/images/slider-${n}.png`);
         end: "top 50%",
         scrub: 2,
         scroller: scrollEl,
-        markers: true
       }
     });
     
