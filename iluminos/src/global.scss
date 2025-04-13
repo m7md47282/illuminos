@@ -61,7 +61,32 @@ html {
 // @import 'swiper/css/navigation';
 // @import 'swiper/css/pagination';
 
+@mixin ripple-effect {
+    position: relative;
+    overflow: hidden;
 
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+        background-repeat: no-repeat;
+        background-position: 50%;
+        transform: scale(10, 10);
+        opacity: 0;
+        transition: transform .5s, opacity 1s;
+    }
+
+    &:active::after {
+        transform: scale(0, 0);
+        opacity: .3;
+        transition: 0s;
+    }
+}
 
 
 
@@ -91,13 +116,17 @@ html {
   display: inline-block;
 }
 
+
+
 .btn{
-    border-radius:  8px !important;
+    border-radius: 8px !important;
     font-size: 16px !important;
     height: 48px !important;
     min-width: 120px !important;
     transition: all 0.2s ease !important;
-    font-weight: 700 ;
+    font-weight: 700;
+    text-transform: uppercase !important;
+    @include ripple-effect;
 }
 
 .btn-primary-light {
@@ -109,6 +138,9 @@ html {
 .btn-primary {
     color: var(--ion-text-color);
     background-color: var(--ion-color-primary);
+    &:hover{
+        background-color: var(--ion-color-primary-dark);
+    }
 
 }
 
@@ -184,6 +216,34 @@ a.link-btn:hover {
     justify-content: space-between;
 }
 
+.absolute{
+    position: absolute;
+}
+
+.top-0{
+    top: 0;
+}
+
+.left-0{
+    left: 0;
+}
+
+.right-0{
+    right: 0;
+}
+
+.bottom-0{
+    bottom: 0;
+}
+
+.w-full{
+    width: 100%;
+}
+
+.h-full{
+    height: 100%;
+}
+
 @for $i from 0 through 1000 {
     .m-#{$i} {
         margin: #{$i}px;
@@ -231,7 +291,9 @@ a.link-btn:hover {
 
 
 
-html, body { height: 100%; }
+html, body {
+     height: 100%;
+     }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 

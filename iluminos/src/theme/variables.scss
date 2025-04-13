@@ -2,6 +2,7 @@
 // http://ionicframework.com/docs/theming/
 :root {
     --ion-color-primary: #B38549;
+    --ion-color-primary-dark: #976d36;
 
     --ion-color-secondary: #253B74;
     --ion-color-secondary-dark: #131F3F;
@@ -14,7 +15,7 @@
     --gray-dark: #2D2C2C;
     --gray-darker: #242424;
 
-    --ion-text-color: #CBD2DD;
-    --ion-text-color-light: #C5CDD3;
-    --ion-text-color-lighter: #CBD2DD;
+    --ion-text-color: #CBD2DD !important;
+    --ion-text-color-light: #C5CDD3 !important;
+    --ion-text-color-lighter: #CBD2DD !important;
 }
