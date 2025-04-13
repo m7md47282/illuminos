@@ -300,14 +300,12 @@ ng-deep .owl-carousel .owl-stage{
   display: flex;
 }
 
-.team-card {
-  flex: 0 0 calc(100% / 8);
-  aspect-ratio: 1 / 1;
-  margin: 0 10px;
-  background: var(--ion-color-primary);
-  display: flex;
-  width: 0px;
+.team-slider{
+  width: 50%;
+  height: 300px;
+ 
 }
+
 
 .circle-card{
   border-radius: 50%;
@@ -315,6 +313,55 @@ ng-deep .owl-carousel .owl-stage{
   align-items: center;
   justify-content: center;
 }
+
+.team-card {
+  aspect-ratio: 1 / 1;
+  margin: 0 10px;
+  background: var(--ion-color-primary);
+  display: flex;
+  // width: 100px ;
+  scale: 0.4;
+  opacity: 0.3 ;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  img{
+    width: 70%;
+    max-height: 200px;
+    object-fit: cover;
+  }
+}
+
+
+::ng-deep {
+  .swiper-wrapper{
+    display: flex;
+    align-items: center !important;
+  }
+  swiper-slide:nth-child(3){
+    .team-card{
+      // width: 200px ;
+      scale: 1;
+      opacity: 1 ;
+    }
+  }
+  swiper-slide:nth-child(2), swiper-slide:nth-child(4){
+    .team-card{
+      // width: 150px ;
+      scale: 0.7;
+      opacity: 0.5 ;
+    }
+  }
+  swiper-slide:nth-child(1), swiper-slide:nth-child(5){
+    .team-card{
+      // width: 100px ;
+      scale: 0.4;
+      opacity: 0.2;
+    }
+  }
+}
+
 .our-partners-section {
   background: url('/assets/images/sea.png');
   background-size: cover;
@@ -407,6 +454,17 @@ ng-deep .owl-carousel .owl-stage{
   height: 100vh;
   width: 100%;
   padding-top: 200px;
+  .house-lights{
+    animation: fliking 2s infinite;
+    position: absolute;
+    z-index: 1;
+    opacity: 0.2;
+    object-fit: cover;
+    object-position: center;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .diver{
@@ -480,5 +538,17 @@ ng-deep .owl-carousel .owl-stage{
 
   100% {
     transform: rotate(360deg);
+  }
+}
+@keyframes fliking {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  50% {
+    filter: hue-rotate(340deg);
+  }
+  100% {
+    filter: hue-rotate(0deg);
   }
 }

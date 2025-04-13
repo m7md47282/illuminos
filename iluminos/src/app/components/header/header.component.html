@@ -9,13 +9,13 @@
         <ion-content class="ion-padding">
           
           <div class="flex flex-col gap-2">
-            <span>
+            <span routerLink="/events">
               events
             </span>
-            <span>
+            <span routerLink="/events">
               make your event
             </span>
-            <span>
+            <span routerLink="/contact">
               contact us
             </span>
           </div>
@@ -37,11 +37,11 @@
         <div name="logo" class="logo col-start-2">
           logo
         </div>
-        <button class="clickable col-start-10 max-width btn btn-primary-light">
+        <button class="clickable col-start-10 max-width btn btn-primary-light" routerLink="/events">
           events
         </button>
-        <span class="clickable col-start-11 max-width">make your event</span>
-        <span class="clickable col-start-12 max-width">Contact us</span>
+        <span class="clickable col-start-11 max-width" routerLink="/events">make your event</span>
+        <span class="clickable col-start-12 max-width" routerLink="/contact">Contact us</span>
       </nav>
   }
 </header>

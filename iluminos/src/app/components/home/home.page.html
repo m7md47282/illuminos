@@ -150,20 +150,34 @@
   </div>
 
   <section class="meet-us-section bg-black">
-    <div class="meet-us-container pt-100">
-      <h1 class="text-center m-0 mb-30">Meet Our Team</h1>
-      <div class="our-team">
-        <div class="team-slider-wrapper slider">
-          <div class="circle-card team-card left-side">Slide 1</div>
-          <div class="circle-card team-card left-side">Slide 1</div>
-          <div class="circle-card team-card left-side">Slide 1</div>
-          <div class="circle-card team-card">Slide 2</div>
-          <div class="circle-card team-card right-side">Slide 3</div>
-          <div class="circle-card team-card right-side">Slide 3</div>
-          <div class="circle-card team-card right-side">Slide 3</div>
-        </div>
+    <div class="text-center mb-50">
+      <h1 class="mt-0">Meet our team</h1>
+    </div>
+    <div class="flex items-center justify-center">
+      <div class="team-slider">
+        <swiper-container [loop]="true" 
+        autoplay='{
+          "delay": 2000, 
+          "disableOnInteraction": true, 
+          "reverseDirection": true
+        }' 
+        breakpoints='{
+        "0": { "slidesPerView": 3 },
+        "800": { "slidesPerView": 3 },
+        "1440": { "slidesPerView": 5 }
+      }' [slidesPerView]="5"  class="mySwiper">
+          <swiper-slide *ngFor="let person of team">
+            <div>
+              <div class="circle-card team-card left-side">
+                <img [src]="person" alt="">
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper-container>
+  
       </div>
     </div>
+   
     <div class="shade bottom"></div>
   </section>
 
@@ -347,6 +361,8 @@
     }@placeholder{
     <img src="assets/images/diver.png" class="diver" alt="">
     }
+
+    <img class="house-lights" src="assets/images/house-lights.png" alt="">
     <div class="container our-story-container">
       <h1 class="text-center">Our Story</h1>
       <div class="grid">

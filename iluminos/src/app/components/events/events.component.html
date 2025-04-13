@@ -1,0 +1,32 @@
+<section name="events" class="events-section z-3">
+
+  <div class="events-container">
+    <div class="events-section-title">
+      <h1>Our events</h1>
+      <div class="events-description">
+        <p>we do the best events that you will ever see so stay tuned up </p>
+        <p>with our <a href="" class="link-btn">latest events</a></p>
+
+      </div>
+    </div>
+    <div class="event-card">
+      <swiper-container [loop]="true" autoplay='{"delay": 1000, "disableOnInteraction": false}' breakpoints='{
+          "640": { "slidesPerView": 3 },
+          "768": { "slidesPerView": 4 },
+          "1024": { "slidesPerView": 6 },
+          "1440": { "slidesPerView": 6 }
+        }' [slidesPerView]="1" class="mySwiper" [spaceBetween]="20">
+            <swiper-slide *ngFor="let image of images">
+              <div [style.backgroundImage]="'url(' + image + ')'" style="
+            aspect-ratio: 1/1;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+          ">
+        </div>
+        </swiper-slide>
+      </swiper-container> 
+
+    </div>
+  </div>
+</section>

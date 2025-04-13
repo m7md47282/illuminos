@@ -3,8 +3,10 @@ import { IonContent } from '@ionic/angular/standalone';
 import gsap from 'gsap';
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { CommonModule } from '@angular/common';
+import { Swiper } from 'swiper/types';
 import { FooterComponent } from '../footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
+import { SwiperContainer } from 'swiper/element';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -19,7 +21,6 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class HomePage implements AfterViewInit{
   @ViewChild(IonContent, { static: true }) ionContent!: IonContent;
-
 
   
   customOptions = {
@@ -116,6 +117,7 @@ getSeverity(status: string) {
 
 
 images = [1, 2, 3,4,5,6].map((n) => `/assets/images/slider-${n}.png`);
+team = [1, 2, 3,4,5,5,5,5].map((n) => `/assets/images/person-${n}.png`);
 
 
   
@@ -216,55 +218,55 @@ images = [1, 2, 3,4,5,6].map((n) => `/assets/images/slider-${n}.png`);
 
 
 
-    gsap.from(".team-card.right-side", {
-      xPercent: 1000 ,
-      ease: "none",
-      opacity: 1,
-      scrollTrigger: {
-        trigger: ".meet-us-container",
-        start: "bottom bottom",
-        end: "top 50%",
-        // scrub: 1.5,
-        scroller: scrollEl,
-      }
-    });
-    gsap.to(".team-card.right-side", {
-      xPercent: 0,
-      ease: "none",
-      opacity: 1,
-      scrollTrigger: {
-        trigger: ".meet-us-container",
-        start: "bottom bottom",
-        end: "top 50%",
-        scrub: 2,
-        scroller: scrollEl,
-      }
-    });
+    // gsap.from(".team-card.right-side", {
+    //   xPercent: 1000 ,
+    //   ease: "none",
+    //   opacity: 1,
+    //   scrollTrigger: {
+    //     trigger: ".meet-us-container",
+    //     start: "bottom bottom",
+    //     end: "top 50%",
+    //     // scrub: 1.5,
+    //     scroller: scrollEl,
+    //   }
+    // });
+    // gsap.to(".team-card.right-side", {
+    //   xPercent: 0,
+    //   ease: "none",
+    //   opacity: 1,
+    //   scrollTrigger: {
+    //     trigger: ".meet-us-container",
+    //     start: "bottom bottom",
+    //     end: "top 50%",
+    //     scrub: 2,
+    //     scroller: scrollEl,
+    //   }
+    // });
     
-    gsap.from(".team-card.left-side", {
-      xPercent: -1000 ,
-      ease: "none",
-      opacity: 1,
-      scrollTrigger: {
-        trigger: ".meet-us-container",
-        start: "bottom bottom",
-        end: "top 50%",
-        // scrub: 1.5,
-        scroller: scrollEl,
-      }
-    });
-    gsap.to(".team-card.left-side", {
-      xPercent: 0,
-      ease: "none",
-      opacity: 1,
-      scrollTrigger: {
-        trigger: ".meet-us-container",
-        start: "bottom bottom",
-        end: "top 50%",
-        scrub: 2,
-        scroller: scrollEl,
-      }
-    });
+    // gsap.from(".team-card.left-side", {
+    //   xPercent: -1000 ,
+    //   ease: "none",
+    //   opacity: 1,
+    //   scrollTrigger: {
+    //     trigger: ".meet-us-container",
+    //     start: "bottom bottom",
+    //     end: "top 50%",
+    //     // scrub: 1.5,
+    //     scroller: scrollEl,
+    //   }
+    // });
+    // gsap.to(".team-card.left-side", {
+    //   xPercent: 0,
+    //   ease: "none",
+    //   opacity: 1,
+    //   scrollTrigger: {
+    //     trigger: ".meet-us-container",
+    //     start: "bottom bottom",
+    //     end: "top 50%",
+    //     scrub: 2,
+    //     scroller: scrollEl,
+    //   }
+    // });
     
     
     gsap.from(".our-partners-slider-wrapper", {
