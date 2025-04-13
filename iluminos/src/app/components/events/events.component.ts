@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, OnInit, Signal, viewChild, ViewChild } from '@angular/core';
+import { Swiper } from 'swiper/types';
+
 
 @Component({
   selector: 'app-events',
@@ -12,7 +14,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, OnInit, Signal, viewChil
 })
 export class EventsComponent  implements OnInit {
 
-  swiperRef: Signal<ElementRef<any> | undefined> = viewChild('swiperRef')
+  swiperRef: Signal<ElementRef<Swiper> | undefined> = viewChild('swiperRef')
 
   events: {
     id: number;
@@ -75,10 +77,20 @@ export class EventsComponent  implements OnInit {
   }
 
   ngAfterViewInit() {
+  }
+
+  slideNext() {
     if (this.swiperRef()) {
-      console.dir(this.swiperRef()?.nativeElement);
+      console.dir((this.swiperRef()?.nativeElement as any).swiper.slideNext());
     }
   }
+
+  slidePrev() {
+    if (this.swiperRef()) {
+      console.dir((this.swiperRef()?.nativeElement as any).swiper.slidePrev());
+    }
+  }
+
   startCountdown() {
     setInterval(() => {
       this.events.forEach((event, index) => {
