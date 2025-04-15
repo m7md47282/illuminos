@@ -16,7 +16,7 @@ import { FooterComponent } from '../footer/footer.component';
 })
 export class EventsComponent implements OnInit {
 
-
+  images = [1, 2, 3,4,5,6].map((n) => `/assets/images/slider-${n}.png`);
 
   sliderContainer: Signal<ElementRef<any> | undefined> = viewChild('sliderContainer')
   slides = viewChildren<ElementRef<HTMLElement>>('slide');
