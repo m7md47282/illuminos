@@ -1,56 +1,102 @@
-<section name="events" class="events-section z-3">
+<ion-content>
+  <section name="events" class="events-section z-3">
 
-  <div class="events-container">
-    <div class="event-card relative">
+    <div class="events-container">
+      <div class="event-card relative">
 
-      <swiper-container 
+        <swiper-container 
         #swiperRef 
-        [loop]="true" 
-        autoplay='{"delay": 0, "disableOnInteraction": true}' 
-        [slidesPerView]="1"
+        [loop]="true"
+        autoplay='{"delay": 0, "disableOnInteraction": true}'
+        [slidesPerView]="1" 
         [speed]="1000" 
         [fadeEffect]="{
-        crossFade: true
-        }"
-         [pagination]="{ clickable: true }">
-        <swiper-slide *ngFor="let event of events">
-          <div 
-            [style.backgroundImage]="'url(' + event.image + ')'"
-            class="event-card-image" 
-            style="
+          crossFade: true
+        }" [pagination]="{ clickable: true }">
+          <swiper-slide *ngFor="let event of events">
+            <div [style.backgroundImage]="'url(' + event.image + ')'" class="event-card-image" style="
               width: 100%;
               height: 100vh;
               background-size: cover;
               background-position: center;
             ">
 
-            <div class="event-card-content w-full h-full flex items-center justify-center">
-              <div class="event-card-content-inner flex flex-col items-center justify-center">
-                <h1 class="text-primary">{{event.name}}</h1>
-                <p class="text-primary starts-in">Starts in</p>
-                <div class="countdown">
-                  <div class="flex-col items-center justify-center">
-                    <span>{{event.countdown?.days}}</span> <span class="time-unit">Days</span>
+              <div class="event-card-content w-full h-full flex items-center justify-center">
+                <div class="event-card-content-inner flex flex-col items-center justify-center">
+                  <h1 class="text-primary">{{event.name}}</h1>
+                  <p class="text-primary starts-in">Starts in</p>
+                  <div class="countdown">
+                    <div class="flex-col items-center justify-center">
+                      <span>{{event.countdown?.days}}</span> <span class="time-unit">Days</span>
+                    </div>
+                    <div class="flex-col items-center justify-center">
+                      <span>{{event.countdown?.hours}}</span> <span class="time-unit">Hours</span>
+                    </div>
+                    <div class="flex-col items-center justify-center">
+                      <span>{{event.countdown?.minutes}}</span> <span class="time-unit">Minutes</span>
+                    </div>
+                    <div class="flex-col items-center justify-center">
+                      <span>{{event.countdown?.seconds}}</span> <span class="time-unit">Seconds</span>
+                    </div>
                   </div>
-                  <div class="flex-col items-center justify-center">
-                    <span>{{event.countdown?.hours}}</span> <span class="time-unit">Hours</span>
-                  </div>
-                  <div class="flex-col items-center justify-center">
-                    <span>{{event.countdown?.minutes}}</span> <span class="time-unit">Minutes</span>
-                  </div>
-                  <div class="flex-col items-center justify-center">
-                    <span>{{event.countdown?.seconds}}</span> <span class="time-unit">Seconds</span>
-                  </div>
+                  <button class="btn btn-primary mt-50">
+                    Get Tickets
+                  </button>
                 </div>
-                <button class="btn btn-primary mt-50">
-                  Get Tickets
-                </button>
               </div>
             </div>
-          </div>
-        </swiper-slide>
-      </swiper-container>
+          </swiper-slide>
+        </swiper-container>
 
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+
+
+  <section class="events-details-section flex relative"
+    [style.backgroundImage]="'url(' + selectedSlide().image + ')'"
+    style="
+        background-size: cover;
+        background-position: center;
+      "
+    >
+    <div class="shade top z-1"></div>
+
+    <div class=" z-2">
+      <div class="events-container-wrapper">
+        <div class="events-container" #sliderContainer>
+          @for (event of commingEvents(); track event.id) {
+              <div  #slide [style.backgroundImage]="'url(' + event.image + ')'" class="slide event-card" style="
+              background-size: cover;
+              background-position: center;
+            "></div>
+          }
+        </div>
+    
+        <div class="slider-controls">
+          <mat-icon class="dot" (click)="slidePrev()">arrow_back_ios</mat-icon>
+          <mat-icon class="dot" (click)="slideNext()">arrow_forward_ios</mat-icon>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="details z-2">
+      <div class="event-description">
+        <h1>{{selectedSlide().name}}</h1>
+        <p>{{selectedSlide().description}}</p>
+        <p>{{selectedSlide().date}}</p>
+
+        <button class="btn btn-primary">
+          Get Tickets
+        </button>
+      </div>
+    </div>
+    <img class="events-bg" src="assets/images/events-bg.png" alt="">
+    <div class="shade bottom z-1"></div>
+  </section>
+
+  <app-footer></app-footer>
+
+</ion-content>
